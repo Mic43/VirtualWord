@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{36F2D80E-278E-44C4-9B03-84D834AC4648}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VirtualWord</RootNamespace>
+    <AssemblyName>VirtualWord</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.3.0\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Behaviours\DeathBehaviour\AlwaysDie.cs" />
+    <Compile Include="Behaviours\DeathBehaviour\ConditionalDeathBehaviour.cs" />
+    <Compile Include="Behaviours\DeathBehaviour\DieAtConstantAge.cs" />
+    <Compile Include="Behaviours\DeathBehaviour\IDeathBehaviour.cs" />
+    <Compile Include="Behaviours\DeathBehaviour\NeverDie.cs" />
+    <Compile Include="Behaviours\FightBehaviour\DoNotAttack.cs" />
+    <Compile Include="Behaviours\FightBehaviour\IFightBehaviour.cs" />
+    <Compile Include="AutofacWordObjectsFactory.cs" />
+    <Compile Include="Behaviours\FightBehaviour\RandomFightOutcome.cs" />
+    <Compile Include="Behaviours\FightBehaviour\SimpleKillDefender.cs" />
+    <Compile Include="Behaviours\FightBehaviour\StrongerKillsWeaker.cs" />
+    <Compile Include="Behaviours\MoveBehaviour\CancelCollidingMove.cs" />
+    <Compile Include="Behaviours\MoveBehaviour\SelectMoveBasingOnSpecificObject.cs" />
+    <Compile Include="Behaviours\MoveBehaviour\CollisionSupportedMoveBehaviour.cs" />
+    <Compile Include="Behaviours\MoveBehaviour\MoveToNearestWorldObject.cs" />
+    <Compile Include="Behaviours\MoveBehaviour\MoveToNearestWorldObjectOfType.cs" />
+    <Compile Include="Behaviours\MoveBehaviour\RepeatingMove.cs" />
+    <Compile Include="Behaviours\ReproduceBehaviour\DoNotReproduce.cs" />
+    <Compile Include="Behaviours\ReproduceBehaviour\IReproduceBehaviour.cs" />
+    <Compile Include="Behaviours\MoveBehaviour\CancelMoveOutOfBoundaries.cs" />
+    <Compile Include="Behaviours\MoveBehaviour\DeltaMove.cs" />
+    <Compile Include="Behaviours\MoveBehaviour\DoNotMove.cs" />
+    <Compile Include="Behaviours\MoveBehaviour\IMoveBehaviour.cs" />
+    <Compile Include="Behaviours\MoveBehaviour\RandomMove.cs" />
+    <Compile Include="Behaviours\MoveBehaviour\RandomMoveBasingOnDirection.cs" />
+    <Compile Include="Behaviours\ReproduceBehaviour\ReproduceWithCooldown.cs" />
+    <Compile Include="Behaviours\SelfReproduceBehaviour\ConditionalReproduceBehaviour.cs" />
+    <Compile Include="Behaviours\SelfReproduceBehaviour\DoNotReproduce.cs" />
+    <Compile Include="Behaviours\SelfReproduceBehaviour\Conditions\IReproduceConditon.cs" />
+    <Compile Include="Behaviours\SelfReproduceBehaviour\Conditions\RandomReproduceConditon.cs" />
+    <Compile Include="Behaviours\SelfReproduceBehaviour\RandomSurroundingSelfReproduce.cs" />
+    <Compile Include="Utils\Factories\CollisionHandlersFactory.cs" />
+    <Compile Include="Utils\Factories\MoveBehavioursFactory.cs" />
+    <Compile Include="Utils\IObserver.cs" />
+    <Compile Include="Utils\WorldObjectsHelper.cs" />
+    <Compile Include="Utils\Maybe.cs" />
+    <Compile Include="WordObjects\CollisionHandler\Base\CollisionHandler.cs" />
+    <Compile Include="WordObjects\CollisionHandler\Base\HandleForConcreteWordObjectsTypes.cs" />
+    <Compile Include="WordObjects\CollisionHandler\Base\ICollisionHandler.cs" />
+    <Compile Include="WordObjects\CollisionHandler\IgnoreCollision.cs" />
+    <Compile Include="WordObjects\CollisionHandler\MovableCollisionBase.cs" />
+    <Compile Include="WordObjects\CollisionHandler\Base\SequentialCollisionHandler.cs" />
+    <Compile Include="IWordObjectsFactory.cs" />
+    <Compile Include="Behaviours\ReproduceBehaviour\SimpleReproduceBehaviour.cs" />
+    <Compile Include="Behaviours\SelfReproduceBehaviour\ISelfReproduceBehaviour.cs" />
+    <Compile Include="WordObjects\Plant.cs" />
+    <Compile Include="WordObjects\Properties\Strenght\AgeStrenghtPair.cs" />
+    <Compile Include="WordObjects\Properties\Strenght\ConstantStrenght.cs" />
+    <Compile Include="WordObjects\Properties\Strenght\IAgeToStrenghtFunc.cs" />
+    <Compile Include="WordObjects\Properties\Strenght\IWorldObjectStrenghtProvider.cs" />
+    <Compile Include="WordObjects\Properties\Strenght\LinearInterpolation.cs" />
+    <Compile Include="WordObjects\Properties\Strenght\StrenghtBasedOnAge.cs" />
+    <Compile Include="WordObjects\Properties\Strenght\StrenghtBasedOnAgeBase.cs" />
+    <Compile Include="WordObjects\SamplePlant.cs" />
+    <Compile Include="World\ChangeSet.cs" />
+    <Compile Include="WordObjectsUpdater\IWordObjectsChangeSetClear.cs" />
+    <Compile Include="WordObjectsUpdater\IWordObjectsDeleter.cs" />
+    <Compile Include="WordObjectsUpdater\IWordObjectsInserter.cs" />
+    <Compile Include="WordObjectsUpdater\IWordObjectsChangeSetGet.cs" />
+    <Compile Include="World\DataTypes\Vector.cs" />
+    <Compile Include="Behaviours\RotateBehaviour\DoNotRotate.cs" />
+    <Compile Include="Behaviours\RotateBehaviour\IRotationBehaviour.cs" />
+    <Compile Include="Behaviours\ObjectMustFaceMoveDirection.cs" />
+    <Compile Include="WordObjectsUpdater\WordObjectsUpdater.cs" />
+    <Compile Include="WordObjects\ConcreteAnimalSample.cs" />
+    <Compile Include="Behaviours\DeathBehaviour\IDeathConditon.cs" />
+    <Compile Include="WordObjects\Interfaces\IReproducer.cs" />
+    <Compile Include="WordObjects\Movable.cs" />
+    <Compile Include="WordObjects\Interfaces\IPositionable.cs" />
+    <Compile Include="WordObjects\Interfaces\IRotatable.cs" />
+    <Compile Include="WordObjects\Interfaces\ITickReceiver.cs" />
+    <Compile Include="WordObjects\WordObject.cs" />
+    <Compile Include="World\DataTypes\WordSize.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="World\DataTypes\WordPosition.cs" />
+    <Compile Include="World\Events\WordObjectEventBase.cs" />
+    <Compile Include="World\Events\WordObjectInserted.cs" />
+    <Compile Include="World\Events\WordObjectRepositioned.cs" />
+    <Compile Include="World\Interfaces\ITicker.cs" />
+    <Compile Include="World\Interfaces\IWordObjectsProvider.cs" />
+    <Compile Include="World\Interfaces\IWordSizeProvider.cs" />
+    <Compile Include="World\Interfaces\IWorldDataProvider.cs" />
+    <Compile Include="World\Word.cs" />
+    <Compile Include="World\Events\WordObjectDeleted.cs" />
+    <Compile Include="World\WordObjectsContainer.cs" />
+    <Compile Include="World\DataTypes\WorldData.cs" />
+    <Compile Include="World\WorldDataStorer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
