@@ -13,7 +13,9 @@ namespace VirtualWord.Utils
             if (target == null) throw new ArgumentNullException(nameof(target));
             if (allObjects == null) throw new ArgumentNullException(nameof(allObjects));
             
-            return new Maybe<WordObject>(allObjects.Select(x => new {Distance = x.Position.DistanceTo(target), WordObject = x})
+            return new Maybe<WordObject>(
+                allObjects
+                .Select(x => new {Distance = x.Position.DistanceTo(target), WordObject = x})
                 .Where(x => x.Distance != 0)
                 .OrderBy(x => x.Distance)
                 .Select(x => x.WordObject)

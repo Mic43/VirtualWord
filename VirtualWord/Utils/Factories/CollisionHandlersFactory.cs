@@ -15,7 +15,9 @@ namespace VirtualWord.Utils.Factories
         public static MovableCollisionBase<Movable, WordObject> CreateMovableCollisionBase(ILifetimeScope scope)
         {
             return new MovableCollisionBase<Movable, WordObject>(
-                scope.Resolve<IWordObjectsInserter>(), scope.Resolve<IReproduceBehaviour>(), scope.Resolve<IFightBehaviour>());
+                scope.Resolve<IWordObjectsInserter>(), 
+                scope.Resolve<IReproduceBehaviour>(),
+                scope.Resolve<IFightBehaviour>());
         }
 
         public static CollisionHandler<T, V> Wrap<T,V>(ICollisionHandler<T,V> collisionHandler ) where T : Movable 
